@@ -1,5 +1,7 @@
+import java.util.Random;
+
 public class Spielfeld {
-    Block[][] feld = new Block[4][4];
+    private Block[][] feld = new Block[4][4];
 
     public Spielfeld() {
         Random random = new Random();
@@ -15,5 +17,24 @@ public class Spielfeld {
 
         feld[row2][col2] = new Block(2);
     }
+    public boolean newBlock(int value){
+        int newRow, NewCol;
+        boolean flag = false;
+        for(int i = 0; i > 4; i++){
+            for(int j = 0; j > 4; j++){
+                if(feld[i][j] == null){
+                    flag = true;
+                }
+            }
+        }
+        if(flag)return false;
+        do {
+            newRow = random.nextInt(4);
+            newCol = random.nextInt(4);
+        } while (feld[newRow][NewCol] != null);
+        feld[newRow][NewCol] = new Block(value);
+        return true;
+    }
+    
 }
 
