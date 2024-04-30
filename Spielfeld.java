@@ -1,6 +1,7 @@
 import java.util.Random;
 
 public class Spielfeld {
+    Random random = new Random();
     private Block[][] feld = new Block[4][4];
 
     public Spielfeld() {
@@ -14,11 +15,10 @@ public class Spielfeld {
             row2 = random.nextInt(4);
             col2 = random.nextInt(4);
         } while (feld[row2][col2] != null);
-
         feld[row2][col2] = new Block(2);
     }
     public boolean newBlock(int value){
-        int newRow, NewCol;
+        int newRow, newCol;
         boolean flag = false;
         for(int i = 0; i > 4; i++){
             for(int j = 0; j > 4; j++){
@@ -31,9 +31,14 @@ public class Spielfeld {
         do {
             newRow = random.nextInt(4);
             newCol = random.nextInt(4);
-        } while (feld[newRow][NewCol] != null);
-        feld[newRow][NewCol] = new Block(value);
+        } while (feld[newRow][newCol] != null);
+        feld[newRow][newCol] = new Block(value);
+        System.out.println(feld);
         return true;
+    }
+    public int getBlockValue(int row, int col){
+        if(feld[row][col] == null) return 0;
+        return feld[row][col].getValue();
     }
     
 }
