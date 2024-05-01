@@ -1,6 +1,6 @@
 public class Block {
     private int value;
-    private bool merged;
+    private boolean merged;
 
     public Block(int initValue) {
         value = initValue;
@@ -12,7 +12,11 @@ public class Block {
     public void resetMerge(){
         merged = false;
     }
-    public void updateValue(boolean combined){
-        if(combined)merged = true; value*2;
+    public boolean checkMerged(){
+        return merged;
+    }
+    public void updateValue(){
+        merged = true; 
+        value=value*2;
     }
 }

@@ -30,6 +30,12 @@ public class GUI extends JFrame {
         setVisible(true);
     }
 
+    public void addKeyListenerToPanel(java.awt.event.KeyListener listener) {
+        // Add the KeyListener to the mainPanel
+        getContentPane().getComponent(0).addKeyListener(listener);
+        getContentPane().getComponent(0).setFocusable(true);
+    }
+
     public void updateText(int row, int col, int value) {
         labels[row][col].setText(Integer.toString(value));
     }
